@@ -1,6 +1,6 @@
 ﻿# UserManagement
 
-UserManagement is a learning project designed to Sign Up the new Users.The project includes user authentication using Spring Security, REST APIs for data management,Validations for the Valid data before storing it to the Database.
+UserManagement is a learning project designed to Sign Up the new Users,User Authentication and User Authorization,Creating annotation and Custom Validations.The project includes user authentication using Spring Security, REST APIs for data management,Validations for the Valid data before storing it to the Database.
 
 ### Features
 * User Authentication: Secure login and registration using Spring Security.
