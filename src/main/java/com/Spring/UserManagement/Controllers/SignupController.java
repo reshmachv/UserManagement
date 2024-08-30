@@ -24,14 +24,22 @@ public class SignupController {
     @Autowired
     private userServiceImpl userService;
 
+    @GetMapping()
+    public ResponseEntity<?>Healthcheck(User user){
+        return new ResponseEntity<>(user,HttpStatus.OK);
+    }
+
     @PostMapping()
-    public ResponseEntity<SignupResponse> signUpUser(@RequestBody @Valid User user){
+    public ResponseEntity<?> signUpUser(@RequestBody @Valid User user){
+        if(userService.findByName(user.getUserName())!=null) {
+            SignupResponse response= new SignupResponse("user already exist!", Instant.now(),userService.findByName(user.getUserName()));
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
         SignupResponse response = SignupResponse.builder()
                 .user(userService.saveUsers(user))
                 .message("Sign Up Complete!")
                 .timestamp(Instant.now())
                 .build();
-
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
@@ -46,8 +54,4 @@ public class SignupController {
                 .build();
     }
 
-    @GetMapping()
-    public ResponseEntity<?>getcheck(User user){
-        return new ResponseEntity<>(user,HttpStatus.OK);
-    }
 }

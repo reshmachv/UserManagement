@@ -27,8 +27,9 @@ public class securityConfig{
         return http.csrf(customizer->customizer.disable())
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .httpBasic(Customizer.withDefaults())
-                .authorizeHttpRequests(request-> request.requestMatchers("Users").authenticated()
-                        .requestMatchers("Users/**").hasRole("Admin").anyRequest().permitAll()
+                .authorizeHttpRequests(request-> request.requestMatchers("Users/**").authenticated()
+                        .requestMatchers("Users/all-Users").hasRole("Admin")
+                        .anyRequest().permitAll()
                 )
                 .build();
     }
