@@ -16,5 +16,6 @@ UserManagement is a learning project designed to Sign Up the new Users,User Auth
 * Lombok (To reduce boilerplate code)
 * PostMan (For API testing)
 * Validation (For constraints)
+* Password encoding with BcryptPasswordencoder
 
 
