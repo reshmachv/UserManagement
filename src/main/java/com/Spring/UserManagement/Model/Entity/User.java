@@ -23,9 +23,11 @@ public class User {
     private Long userId;
     @NonNull
     @Column(unique = true,length = 15)
+    @NotBlank(message = "UserName is mandatory!")
     private String userName;
     @Email
     @Column(unique = true)
+    @NotBlank(message = "Email can't be blank")
     private String emailId;
     @NonNull
     @NotBlank(message="Please Mention your role!")
