@@ -1,7 +1,7 @@
 package com.Spring.UserManagement.Controllers;
 
 import com.Spring.UserManagement.Model.Entity.User;
-import com.Spring.UserManagement.Services.userServiceImpl;
+import com.Spring.UserManagement.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,14 +18,13 @@ import java.util.List;
 @RequestMapping("/Users")
 public class UserControllers {
     @Autowired
-    private userServiceImpl userService;
+    private UserService userService;
 
     @GetMapping("/all-Users")
     public ResponseEntity<List<User>>showAllUsers(){
        List usersList= userService.showUsers();
        return new ResponseEntity<>(usersList, HttpStatus.OK);
     }
-
     @GetMapping("/{Name}")
     public ResponseEntity<?>findByName(@PathVariable String Name){
         User user=userService.findByName(Name);
