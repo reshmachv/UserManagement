@@ -2,7 +2,7 @@ package com.Spring.UserManagement.Controllers;
 
 import com.Spring.UserManagement.Model.Entity.User;
 import com.Spring.UserManagement.Model.Reponse.SignupResponse;
-import com.Spring.UserManagement.Services.userServiceImpl;
+import com.Spring.UserManagement.Services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,10 +18,10 @@ import java.time.Instant;
 @RequestMapping("/signUp")
 public class SignupController {
     @Autowired
-    private userServiceImpl userService;
+    private UserService userService;
 
     @GetMapping()
-    public ResponseEntity<?>Healthcheck(User user){
+    public ResponseEntity<?>HealthCheck(User user){
         return new ResponseEntity<>(user,HttpStatus.OK);
     }
 

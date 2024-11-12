@@ -1,0 +1,9 @@
+spring:
+        application: UserManagement
+        datasource:
+                  url: jdbc:mysql://localhost:3306/userManagement
+                  username: root
+                  password: Ichigo123
+                  driver-class-name: com.mysql.cj.jdbc.Driver
+        main:
+            allow-circular-references: true

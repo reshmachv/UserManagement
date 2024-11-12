@@ -25,6 +25,7 @@ public class UserControllers {
        List usersList= userService.showUsers();
        return new ResponseEntity<>(usersList, HttpStatus.OK);
     }
+
     @GetMapping("/{Name}")
     public ResponseEntity<?>findByName(@PathVariable String Name){
         User user=userService.findByName(Name);
